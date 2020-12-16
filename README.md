@@ -15,5 +15,6 @@ GUID - can be received from system
 Note:
 1.Find  and rename accordingly all folders (like 10.0.17.146_pid100)
 with time of modification > 5 hour
+
 2.The same task but don't use 'find' (modification time doesn't not
 matter in this part)
