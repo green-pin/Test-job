@@ -1,0 +1,19 @@
+#!/bin/bash
+Rename all sub-folders in processing directory (sub-folder example:
+./10.0.17.146_pid100) to GUID instead of 'pid100'
+result: (./10.0.17.146_123ED8A6-095D-11E7-A571-68C46F4C87A2)
+
+2.The same task but don't use 'find' (modification time doesn't not
+matter in this part)
+
+if [ ! $1 ]
+then
+echo 'Enter the folder path. For example: /home/green/ip'
+exit
+fi
+
+for dir in $(du $1 | grep pid | awk '{print $2}')
+do
+echo "Rename $dir"
+mv $dir ${dir//pid*/$(uuidgen)}
+done
