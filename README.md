@@ -13,6 +13,7 @@ pid100 - can be pid100, pid121212 etc.
 GUID - can be received from system
 
 Note:
+
 1.Find  and rename accordingly all folders (like 10.0.17.146_pid100)
 with time of modification > 5 hour
 
