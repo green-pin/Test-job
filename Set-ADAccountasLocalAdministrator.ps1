@@ -1,21 +1,21 @@
 <#
-.SYNOPSIS   
+.SYNOPSIS
 Script to add an AD User or group to the Local Administrator group
-    
-.DESCRIPTION 
+
+.DESCRIPTION
 The script can use either a plaintext file or a computer name as input and will add the trustee (user or group) as an administrator to the computer
-	
+
 .PARAMETER InputFile
 A path that contains a plaintext file with computer names
 
 .PARAMETER Computer
 This parameter can be used instead of the InputFile parameter to specify a single computer or a series of
 computers using a comma-separated format
-	
+
 .PARAMETER Trustee
 The SamAccount name of an AD User or AD Group that is to be added to the Local Administrators group
 
-.NOTES   
+.NOTES
 Name: Set-ADAccountasLocalAdministrator.ps1
 Author: Jaap Brasser
 Version: 1.1.1
@@ -25,19 +25,19 @@ DateUpdated: 2015-11-12
 .LINK
 http://www.jaapbrasser.com
 
-.EXAMPLE   
+.EXAMPLE
 .\Set-ADAccountasLocalAdministrator.ps1.ps1 -Computer Server01 -Trustee JaapBrasser
 
 Description:
 Will set the the JaapBrasser account as a Local Administrator on Server01
 
-.EXAMPLE   
+.EXAMPLE
 .\Set-ADAccountasLocalAdministrator.ps1.ps1 -Computer 'Server01,Server02' -Trustee Contoso\HRManagers
 
 Description:
 Will set the HRManagers group in the contoso domain as Local Administrators on Server01 and Server02
 
-.EXAMPLE   
+.EXAMPLE
 .\Set-ADAccountasLocalAdministrator.ps1 -InputFile C:\ListofComputers.txt -Trustee User01
 
 Description:
@@ -110,7 +110,7 @@ if (!$InputFile) {
 			Write-Host -ForegroundColor Green "Successfully completed command for `'$ADResolved`' on `'$_`'"
 		} catch {
 			Write-Warning "$_"
-		}	
+		}
 	}
 }
 else {
@@ -125,6 +125,6 @@ else {
 			Write-Host -ForegroundColor Green "Successfully completed command"
 		} catch {
 			Write-Warning "$_"
-		}        
+		}
 	}
 }
